@@ -1,0 +1,18 @@
+<h4>Bookmarks</h4>
+
+<% @bookmarks.each do |bookmark| %>
+  <%# <ol> %>
+    <li>
+      <ul>
+        <li><%= bookmark.id %></li>
+        <li><%= bookmark.movie.title %></li>
+        <%# <li><%= bookmark.list.name %></li>
+        <%# <li><%= bookmark.comment %></li>
+        <%= link_to "Delete",
+        bookmark_path(bookmark),
+        data: {turbo_method: :delete, turbo_confirm: "Delete #{bookmark.movie.title} ?"}
+        %>
+      </ul>
+    </li>
+  <%# </ol> %>
+<% end %>
